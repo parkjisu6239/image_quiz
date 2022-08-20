@@ -1,12 +1,14 @@
 {
   "name": "image_quiz",
   "version": "0.1.0",
+  "homepage": "http://parkjisu6239.github.io/image_quiz",
   "private": true,
   "dependencies": {
     "@emotion/css": "11.9.0",
     "@types/node": "16.11.27",
     "@types/react": "18.0.6",
     "@types/react-dom": "18.0.2",
+    "gh-pages": "4.0.0",
     "react": "18.0.0",
     "react-dom": "18.0.0",
     "react-router-dom": "6.3.0",
@@ -20,7 +22,8 @@
     "eject": "react-scripts eject",
     "lint": "eslint --fix ./src",
     "prettier": "prettier --write ./src",
-    "validate": "npm run lint && npm run prettier"
+    "validate": "npm run lint && npm run prettier",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
