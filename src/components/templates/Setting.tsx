@@ -1,6 +1,12 @@
 import React from "react";
 import type { Option } from "src/types";
+import { css } from "@emotion/css";
 
+const formCss = css`
+  display: grid;
+  padding: 20px 30px;
+  border: 1px solid #eeeccc;
+`;
 interface Props {
   file: File | null;
   setFile: (file: File | null) => void;
@@ -9,6 +15,8 @@ interface Props {
   setRandom: (random: boolean) => void;
   moveToNextStep: () => void;
 }
+
+const timerOption = [3, 4, 5, 6, 7, 8, 9, 10];
 
 const Setting = ({
   file,
@@ -29,7 +37,7 @@ const Setting = ({
   };
 
   return (
-    <div>
+    <form className={formCss}>
       <label htmlFor="file">파일 업로드(only .csv)
         <input
           id="file"
@@ -46,14 +54,13 @@ const Setting = ({
           value={gameOption.timeLimit}
           onChange={(e) => setTimeLimit(parseInt(e.target.value, 10))}
         >
-          <option value="3">3초</option>
-          <option value="4">4초</option>
-          <option value="5">5초</option>
-          <option value="6">6초</option>
-          <option value="7">7초</option>
-          <option value="8">8초</option>
-          <option value="9">9초</option>
-          <option value="10">10초</option>
+          {timerOption.map((timer) => (
+            <option
+              key={timer}
+              value={timer}
+            >{timer}초
+            </option>
+          ))}
         </select>
       </label>
       <fieldset>
@@ -83,7 +90,7 @@ const Setting = ({
         </div>
       </fieldset>
       <button disabled={!file} onClick={moveToNextStep}>완료</button>
-    </div>
+    </form>
   );
 };
 

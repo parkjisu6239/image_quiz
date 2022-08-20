@@ -1,19 +1,20 @@
 import React from "react";
 import type { Quiz, Option } from "src/types";
+import Round from "src/components/organisms/Round";
 
 interface Props {
-  quizList: Quiz[] | null
+  quizList: Quiz[]
   moveToNextStep: () => void;
   gameOption: Option;
 }
 
 const Game = ({ quizList, moveToNextStep, gameOption }:Props) => {
-  const totalQuiz = quizList ? quizList.length : 0;
   const [round, setRound] = React.useState(0);
   const [isEnd, setIsEnd] = React.useState(false);
+  const totalQuiz = quizList.length;
 
-  if (!totalQuiz || !quizList) {
-    return <div>오류</div>;
+  if (!totalQuiz) {
+    return <div>문제 없음</div>;
   }
 
   if (isEnd) {
@@ -42,7 +43,12 @@ const Game = ({ quizList, moveToNextStep, gameOption }:Props) => {
 
   return (
     <div>
-      <img src={quizList[round].image} alt={`quiz-${round}`} />
+      <Round
+        round={round}
+        image={quizList[round].image}
+        answer={quizList[round].answer}
+        timeLimit={gameOption.timeLimit}
+      />
       <button onClick={moveToNextRound}>다음</button>
     </div>
   );

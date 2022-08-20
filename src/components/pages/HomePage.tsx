@@ -1,9 +1,11 @@
 import React from "react";
+import { css } from "@emotion/css";
 import type { Quiz, Option, Step } from "src/types";
 import { csvToJSON } from "src/utils/data";
 import Setting from "src/components/templates/Setting";
 import Loading from "src/components/templates/Loading";
 import Game from "src/components/templates/Game";
+import { stuffle } from "src/utils/misc";
 
 function HomePage() {
   const [step, setStep] = React.useState<Step>("SETTING");
@@ -76,13 +78,17 @@ function HomePage() {
     );
   }
 
-  return (
-    <Game
-      quizList={quizList}
-      moveToNextStep={moveToNextStep}
-      gameOption={gameOption}
-    />
-  );
+  if (quizList) {
+    return (
+      <Game
+        quizList={gameOption.isRandom ? stuffle(quizList) : quizList}
+        moveToNextStep={moveToNextStep}
+        gameOption={gameOption}
+      />
+    );
+  }
+
+  return <div>error</div>;
 }
 
 export default HomePage;

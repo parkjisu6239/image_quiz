@@ -1,9 +1,9 @@
-export interface Quiz {
+export type Quiz = {
   image: string;
   answer: string;
 }
 
-export interface Option {
+export type Option = {
   timeLimit: number;
   isRandom: boolean;
 }
