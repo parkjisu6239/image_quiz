@@ -1,7 +1,26 @@
 import React from "react";
 import type { Quiz, Option } from "src/types";
 import Round from "src/components/organisms/Round";
+import Button from "src/components/atoms/Button";
+import { css } from "@emotion/css";
+import gameOverImage from "src/assets/game-over.gif";
 
+const gameCss = css`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+`;
+
+const gameover = css`
+  display: grid;
+  gap: 30px;
+  h1 {
+    font-family: 'Silkscreen', cursive;
+    font-size: 50px;
+    margin-bottom: 0;
+  }
+`;
 interface Props {
   quizList: Quiz[]
   moveToNextStep: () => void;
@@ -19,10 +38,11 @@ const Game = ({ quizList, moveToNextStep, gameOption }:Props) => {
 
   if (isEnd) {
     return (
-      <div>
-        끝!
-        <button onClick={moveToNextStep}>처음으로</button>
-      </div>
+      <section className={gameover}>
+        <h1>Game Over</h1>
+        <img src={gameOverImage} alt="game over" />
+        <Button onClick={moveToNextStep}>처음으로</Button>
+      </section>
     );
   }
 
@@ -34,23 +54,17 @@ const Game = ({ quizList, moveToNextStep, gameOption }:Props) => {
     }
   };
 
-  // TODO
-  // 1. Round component
-  // 2. Countdown component
-  // 3. 출제 순서 랜덤으로 섞기
-  // 4. 라운드 시작, 일시정지, 재시작, 정답 보기 Controller component
-  // 5. style
-
   return (
-    <div>
+    <section className={gameCss}>
       <Round
         round={round}
+        totalQuiz={totalQuiz}
         image={quizList[round].image}
         answer={quizList[round].answer}
         timeLimit={gameOption.timeLimit}
+        moveToNextRound={moveToNextRound}
       />
-      <button onClick={moveToNextRound}>다음</button>
-    </div>
+    </section>
   );
 };
 

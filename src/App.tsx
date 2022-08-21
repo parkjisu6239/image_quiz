@@ -18,7 +18,7 @@ function App() {
     const headerHeight = header ? header.clientHeight : 0;
     const footerHeight = footer ? footer.clientHeight : 0;
 
-    setFixedHeight(headerHeight + footerHeight);
+    setFixedHeight(headerHeight + footerHeight + 1);
   }, []);
 
   return (

@@ -6,6 +6,13 @@ import Setting from "src/components/templates/Setting";
 import Loading from "src/components/templates/Loading";
 import Game from "src/components/templates/Game";
 import { stuffle } from "src/utils/misc";
+import Guide from "src/components/templates/Guide";
+
+const homeCss = css`
+  display: grid;
+  justify-content: center;
+  align-items: center;
+`;
 
 function HomePage() {
   const [step, setStep] = React.useState<Step>("SETTING");
@@ -56,39 +63,50 @@ function HomePage() {
       });
   }, [file]);
 
-  if (step === "SETTING") {
-    return (
-      <Setting
-        file={file}
-        setFile={setFile}
-        gameOption={gameOption}
-        setTimeLimit={setTimeLimit}
-        setRandom={setRandom}
-        moveToNextStep={moveToNextStep}
-      />
-    );
-  }
+  const renderContent = () => {
+    if (step === "SETTING") {
+      return (
+        <section>
+          <Setting
+            file={file}
+            setFile={setFile}
+            gameOption={gameOption}
+            setTimeLimit={setTimeLimit}
+            setRandom={setRandom}
+            moveToNextStep={moveToNextStep}
+          />
+          <Guide />
+        </section>
+      );
+    }
 
-  if (step === "LOADING") {
-    return (
-      <Loading
-        quizList={quizList}
-        moveToNextStep={moveToNextStep}
-      />
-    );
-  }
+    if (step === "LOADING") {
+      return (
+        <Loading
+          quizList={quizList}
+          moveToNextStep={moveToNextStep}
+        />
+      );
+    }
 
-  if (quizList) {
-    return (
-      <Game
-        quizList={gameOption.isRandom ? stuffle(quizList) : quizList}
-        moveToNextStep={moveToNextStep}
-        gameOption={gameOption}
-      />
-    );
-  }
+    if (quizList) {
+      return (
+        <Game
+          quizList={gameOption.isRandom ? stuffle(quizList) : quizList}
+          moveToNextStep={moveToNextStep}
+          gameOption={gameOption}
+        />
+      );
+    }
 
-  return <div>error</div>;
+    return <div>error</div>;
+  };
+
+  return (
+    <article className={homeCss}>
+      {renderContent()}
+    </article>
+  );
 }
 
 export default HomePage;

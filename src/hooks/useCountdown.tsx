@@ -7,6 +7,7 @@ const useCountdown = (
 ) => {
   const [countdown, setCountdown] = React.useState(time * 1000);
   const [pause, setPause] = React.useState(false);
+  const [ding, setDing] = React.useState(true);
 
   const togglePause = () => {
     setPause((prev) => !prev);
@@ -15,6 +16,7 @@ const useCountdown = (
   React.useEffect(() => {
     setPause(false);
     setCountdown(time * 1000);
+    setDing(true);
   }, [time, round]);
 
   React.useEffect(() => {
@@ -24,12 +26,14 @@ const useCountdown = (
     }, 1000);
 
     if (countdown === 0) {
-      onCountdownEnd?.();
       clearInterval(timer);
+      if (ding) {
+        onCountdownEnd?.();
+        setDing(false);
+      }
     }
-
     return () => clearInterval(timer);
-  }, [countdown, time, onCountdownEnd, pause]);
+  }, [countdown, onCountdownEnd, pause, ding]);
 
   const countdownTime = countdown / 1000;
 

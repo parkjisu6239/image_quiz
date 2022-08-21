@@ -1,11 +1,33 @@
 import React from "react";
 import type { Option } from "src/types";
 import { css } from "@emotion/css";
+import Button from "src/components/atoms/Button";
 
 const formCss = css`
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
   padding: 20px 30px;
-  border: 1px solid #eeeccc;
+  border: 1px solid #ececec;
+  border-radius: 5px;
+  justify-content: flex-start;
+
+  > label {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  button {
+    margin-top: 30px;
+    width: 100%;
+  }
+`;
+
+const orderCss = css`
+  display: flex;
 `;
 interface Props {
   file: File | null;
@@ -16,7 +38,7 @@ interface Props {
   moveToNextStep: () => void;
 }
 
-const timerOption = [3, 4, 5, 6, 7, 8, 9, 10];
+const timerOption = [0, 3, 4, 5, 6, 7, 8, 9, 10];
 
 const Setting = ({
   file,
@@ -37,8 +59,9 @@ const Setting = ({
   };
 
   return (
-    <form className={formCss}>
-      <label htmlFor="file">파일 업로드(only .csv)
+    <fieldset className={formCss}>
+      <legend><h3>Game Setting</h3></legend>
+      <label htmlFor="file">문제 파일(only .csv)
         <input
           id="file"
           type="file"
@@ -47,7 +70,7 @@ const Setting = ({
           onChange={handleFileInput}
         />
       </label>
-      <label htmlFor="timer">타이머 시간 선택:
+      <label htmlFor="timer">타이머 시간
         <select
           name="timer"
           id="timer"
@@ -58,39 +81,41 @@ const Setting = ({
             <option
               key={timer}
               value={timer}
-            >{timer}초
+            >{timer ? `${timer}초` : "타이머 없음"}
             </option>
           ))}
         </select>
       </label>
-      <fieldset>
-        <legend>순서 섞기</legend>
-        <div>
-          <label htmlFor="random">섞는다
+      <label htmlFor="order" className={orderCss}>
+        <span>문제 순서</span>
+        <div id="order">
+          <label htmlFor="random">
             <input
               type="radio"
               id="random"
               name="random"
               value="true"
               checked
-              onChange={(e) => setRandom(true)}
+              onChange={() => setRandom(true)}
             />
+            랜덤
           </label>
         </div>
         <div>
-          <label htmlFor="linear">안 섞는다
+          <label htmlFor="linear">
             <input
               type="radio"
               id="linear"
               name="random"
               value="false"
-              onChange={(e) => setRandom(false)}
+              onChange={() => setRandom(false)}
             />
+            순서대로
           </label>
         </div>
-      </fieldset>
-      <button disabled={!file} onClick={moveToNextStep}>완료</button>
-    </form>
+      </label>
+      <Button disabled={!file} onClick={moveToNextStep}>완료</Button>
+    </fieldset>
   );
 };
 
