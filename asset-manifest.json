@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/image_quiz/static/css/main.cc053f42.css",
-    "main.js": "/image_quiz/static/js/main.a4baa094.js",
-    "static/media/timeout.wav": "/image_quiz/static/media/timeout.830d5b60abfb8a74aa9d.wav",
-    "static/media/game-over.gif": "/image_quiz/static/media/game-over.11a629586dbaea9bba63.gif",
-    "static/media/imageQuizExample.png": "/image_quiz/static/media/imageQuizExample.e84fe04d4bcd5bf7e319.png",
-    "index.html": "/image_quiz/index.html",
-    "static/media/image_quiz_example_form.csv": "/image_quiz/static/media/image_quiz_example_form.0a5af50d4fda69df7146.csv",
-    "main.cc053f42.css.map": "/image_quiz/static/css/main.cc053f42.css.map",
-    "main.a4baa094.js.map": "/image_quiz/static/js/main.a4baa094.js.map"
+    "main.css": "/party_game/static/css/main.cc053f42.css",
+    "main.js": "/party_game/static/js/main.9c07fb61.js",
+    "static/media/timeout.wav": "/party_game/static/media/timeout.830d5b60abfb8a74aa9d.wav",
+    "static/media/game-over.gif": "/party_game/static/media/game-over.11a629586dbaea9bba63.gif",
+    "static/media/imageQuizExample.png": "/party_game/static/media/imageQuizExample.e84fe04d4bcd5bf7e319.png",
+    "index.html": "/party_game/index.html",
+    "static/media/image_quiz_example_form.csv": "/party_game/static/media/image_quiz_example_form.0a5af50d4fda69df7146.csv",
+    "main.cc053f42.css.map": "/party_game/static/css/main.cc053f42.css.map",
+    "main.9c07fb61.js.map": "/party_game/static/js/main.9c07fb61.js.map"
   },
   "entrypoints": [
     "static/css/main.cc053f42.css",
-    "static/js/main.a4baa094.js"
+    "static/js/main.9c07fb61.js"
   ]
 }
