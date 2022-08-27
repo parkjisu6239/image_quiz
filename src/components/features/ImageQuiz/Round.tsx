@@ -4,7 +4,7 @@ import Timer from "src/components/UI/atoms/Timer";
 import GameImage from "src/components/UI/molecules/GameImage";
 import RoundController from "src/components/UI/molecules/RoundController";
 import useCountdown from "src/hooks/useCountdown";
-import { defaultBoxCss } from "src/styles";
+import { defaultBoxCss, small } from "src/styles";
 import timeoutSound from "src/assets/timeout.wav";
 
 const roundCss = css`
@@ -15,6 +15,10 @@ const roundCss = css`
   justify-content: center;
   gap: 10px;
   padding: 30px;
+  ${small} {
+    width: 100%;
+    padding: 10px 0;
+  }
 `;
 
 const roundText = css`

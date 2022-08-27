@@ -16,6 +16,10 @@ const guide = css`
   ol {
     text-align: start;
   }
+
+  img {
+    width: 100%;
+  }
 `;
 
 const Guide = () => (

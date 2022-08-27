@@ -1,6 +1,6 @@
 import React from "react";
 import { css } from "@emotion/css";
-import { defaultBoxCss } from "src/styles";
+import { defaultBoxCss, small } from "src/styles";
 
 const imageWrapper = css`
   display: flex;
@@ -15,6 +15,11 @@ const imageWrapper = css`
   > * {
     width: 100%;
     height: 100%;
+  }
+  ${small} {
+    width: 100%;
+    min-width: 100%;
+    height: 400px;
   }
 `;
 

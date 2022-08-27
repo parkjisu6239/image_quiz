@@ -2,15 +2,18 @@ import { css } from "@emotion/css";
 import React from "react";
 import Button from "src/components/UI/atoms/Button";
 import useSpeech from "src/hooks/useSpeech";
+import { defaultBoxCss, small } from "src/styles";
 
 const playerCss = css`
   width: 500px;
   display: grid;
   gap: 20px;
-  padding: 20px;
-  border-radius: 5px;
-  border: 1px solid #bebebe;
   margin: 0 auto;
+  ${small} {
+    padding: 0 10px;
+    width: 100%;
+    border: none;
+  }
 `;
 
 const speakCss = css`
@@ -35,6 +38,13 @@ const optionsCss = css`
     display: flex;
     align-items: center;
     gap: 5px;
+    white-space: nowrap;
+  }
+  ${small} {
+    flex-direction: column;
+    input {
+      width: 100%;
+    }
   }
 `;
 
@@ -111,9 +121,9 @@ const Player = () => {
             value={pitch}
           />
         </label>
-        <button onClick={resetOption}>초기화</button>
       </div>
       <div className={buttonsCss}>
+        <Button onClick={resetOption}>초기화</Button>
         <Button onClick={onClickPlay}>말하기</Button>
         <Button onClick={cancle} disabled={!isSpeaking}>취소</Button>
         <Button onClick={pauseOrResume}>

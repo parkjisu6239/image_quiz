@@ -2,6 +2,7 @@ import React from "react";
 import type { Option } from "src/types";
 import { css } from "@emotion/css";
 import Button from "src/components/UI/atoms/Button";
+import { small } from "src/styles";
 
 const formCss = css`
   display: flex;
@@ -16,13 +17,19 @@ const formCss = css`
   > label {
     width: 100%;
     display: flex;
-    align-items: center;
     gap: 10px;
   }
 
   button {
     margin-top: 30px;
     width: 100%;
+  }
+`;
+
+const fileCss = css`
+  ${small} {
+    flex-direction: column;
+    align-items: flex-start;
   }
 `;
 
@@ -61,7 +68,7 @@ const Setting = ({
   return (
     <fieldset className={formCss}>
       <legend><h3>Game Setting</h3></legend>
-      <label htmlFor="file">문제 파일(only .csv)
+      <label htmlFor="file" className={fileCss}>문제 파일(only .csv)
         <input
           id="file"
           type="file"

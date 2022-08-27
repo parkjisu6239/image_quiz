@@ -42,7 +42,7 @@ const Game = ({ quizList, moveToNextStep, gameOption }:Props) => {
     return (
       <section className={gameover}>
         <h1>Game Over</h1>
-        <img src={gameOverImage} alt="game over" />
+        <img src={gameOverImage} alt="game over" width="100%" />
         <Button onClick={moveToNextStep}>처음으로</Button>
       </section>
     );
