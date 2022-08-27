@@ -1,7 +1,7 @@
 {
-  "name": "image_quiz",
+  "name": "party_game",
   "version": "0.1.0",
-  "homepage": "http://parkjisu6239.github.io/image_quiz",
+  "homepage": "http://parkjisu6239.github.io/party_game",
   "private": true,
   "dependencies": {
     "@emotion/css": "11.9.0",

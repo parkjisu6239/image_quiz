@@ -1,7 +1,7 @@
 import React from "react";
 import type { Option } from "src/types";
 import { css } from "@emotion/css";
-import Button from "src/components/atoms/Button";
+import Button from "src/components/UI/atoms/Button";
 
 const formCss = css`
   display: flex;

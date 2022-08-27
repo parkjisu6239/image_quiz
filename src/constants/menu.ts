@@ -12,6 +12,12 @@ const menu = [
     path: "/about",
     name: "About",
     component: Page.AboutPage
+  },
+  {
+    id: "image-quiz",
+    path: "/image-quiz",
+    name: "ImageQuiz",
+    component: Page.ImageQuizPage
   }
 ];
 

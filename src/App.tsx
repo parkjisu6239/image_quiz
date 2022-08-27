@@ -1,7 +1,7 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import { css } from "@emotion/css";
-import Header from "src/components/organisms/Header";
+import Header from "src/components/UI/organisms/Header";
 import "./App.css";
 
 const mainCss = (FixedHeight: number) => css`

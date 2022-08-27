@@ -1,9 +1,11 @@
 import React from "react";
-import type { Quiz, Option } from "src/types";
-import Round from "src/components/organisms/Round";
-import Button from "src/components/atoms/Button";
 import { css } from "@emotion/css";
+
 import gameOverImage from "src/assets/game-over.gif";
+import type { Quiz, Option } from "src/types";
+
+import Button from "src/components/UI/atoms/Button";
+import Round from "./Round";
 
 const gameCss = css`
   display: flex;

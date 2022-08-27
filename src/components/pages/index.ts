@@ -1,9 +1,11 @@
-import AboutPage from "./AboutPage";
 import HomePage from "./HomePage";
+import AboutPage from "./AboutPage";
+import ImageQuizPage from "./ImageQuizPage";
 
 const Page = {
+  HomePage,
   AboutPage,
-  HomePage
+  ImageQuizPage
 };
 
 export default Page;

@@ -1,8 +1,8 @@
 import React from "react";
-import Button from "src/components/atoms/Button";
+import Button from "src/components/UI/atoms/Button";
 import { css } from "@emotion/css";
 import { defaultBoxCss } from "src/styles";
-import type { ButtonThemeColor } from "src/components/atoms/Button/types";
+import type { ButtonThemeColor } from "src/components/UI/atoms/Button/types";
 
 const controller = (cnt: number) => css`
   width: 100%;

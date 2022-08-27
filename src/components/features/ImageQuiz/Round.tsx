@@ -1,8 +1,8 @@
 import { css } from "@emotion/css";
 import React from "react";
-import Timer from "src/components/atoms/Timer";
-import GameImage from "src/components/molecules/GameImage";
-import RoundController from "src/components/molecules/RoundController";
+import Timer from "src/components/UI/atoms/Timer";
+import GameImage from "src/components/UI/molecules/GameImage";
+import RoundController from "src/components/UI/molecules/RoundController";
 import useCountdown from "src/hooks/useCountdown";
 import { defaultBoxCss } from "src/styles";
 import timeoutSound from "src/assets/timeout.wav";

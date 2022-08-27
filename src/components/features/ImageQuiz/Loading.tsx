@@ -1,7 +1,7 @@
 import React from "react";
 import { preloadImage } from "src/utils/data";
 import type { Quiz } from "src/types";
-import Button from "src/components/atoms/Button";
+import Button from "src/components/UI/atoms/Button";
 import { css } from "@emotion/css";
 import { defaultBoxCss } from "src/styles";
 
