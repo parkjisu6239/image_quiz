@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/party_game/static/css/main.029a6221.css",
-    "main.js": "/party_game/static/js/main.5dc15b53.js",
+    "main.js": "/party_game/static/js/main.ffd4d367.js",
     "static/media/timeout.wav": "/party_game/static/media/timeout.830d5b60abfb8a74aa9d.wav",
     "static/media/game-over.gif": "/party_game/static/media/game-over.11a629586dbaea9bba63.gif",
     "static/media/imageQuizExample.png": "/party_game/static/media/imageQuizExample.e84fe04d4bcd5bf7e319.png",
     "index.html": "/party_game/index.html",
     "static/media/image_quiz_example_form.csv": "/party_game/static/media/image_quiz_example_form.0a5af50d4fda69df7146.csv",
     "main.029a6221.css.map": "/party_game/static/css/main.029a6221.css.map",
-    "main.5dc15b53.js.map": "/party_game/static/js/main.5dc15b53.js.map"
+    "main.ffd4d367.js.map": "/party_game/static/js/main.ffd4d367.js.map"
   },
   "entrypoints": [
     "static/css/main.029a6221.css",
-    "static/js/main.5dc15b53.js"
+    "static/js/main.ffd4d367.js"
   ]
 }
