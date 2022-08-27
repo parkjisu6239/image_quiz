@@ -5,6 +5,7 @@ import Header from "src/components/UI/organisms/Header";
 import "./App.css";
 
 const mainCss = (FixedHeight: number) => css`
+  overflow: auto;
   height: 100%;
   min-height: calc(100vh - ${FixedHeight}px);
 `;

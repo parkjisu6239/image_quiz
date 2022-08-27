@@ -16,8 +16,14 @@ const menu = [
   {
     id: "image-quiz",
     path: "/image-quiz",
-    name: "ImageQuiz",
+    name: "Image Quiz",
     component: Page.ImageQuizPage
+  },
+  {
+    id: "voice-quiz",
+    path: "/voice-quiz",
+    name: "Voice Quiz",
+    component: Page.VoiceQuizPage
   }
 ];
 

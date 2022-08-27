@@ -5,11 +5,8 @@ import { themeColor } from "./constants";
 
 const defaultButtonCss = (buttonThemeColor: colorOption) => css`
   min-width: 64px;
-    padding: 7px 16px;
-    border-radius: 4px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 7px 16px;
+  border-radius: 4px;
   color: rgb(255, 255, 255);
   background-color: ${buttonThemeColor.default};
   box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px, 
