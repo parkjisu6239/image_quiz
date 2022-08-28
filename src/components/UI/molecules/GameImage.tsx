@@ -17,7 +17,7 @@ const imageWrapper = css`
     height: 100%;
   }
   ${small} {
-    width: 100%;
+    width: 100vw;
     min-width: 100%;
     height: 400px;
   }
@@ -29,6 +29,9 @@ const pauseImage = css`
   align-items: center;
   background-color: #d4d4d4;
   border-radius: 5px;
+  ${small} {
+    width: 100%;
+  }
 `;
 
 const gameImage = css`

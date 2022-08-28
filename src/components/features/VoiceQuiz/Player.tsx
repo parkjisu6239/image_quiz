@@ -80,6 +80,7 @@ const Player = () => {
   };
 
   const resetOption = () => {
+    setValue("");
     setRate("1");
     setPitch("1");
   };
