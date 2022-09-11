@@ -36,7 +36,7 @@ interface Props {
   totalQuiz: number;
   image: string;
   answer: string;
-  timeLimit: number;
+  timeLimit?: number;
   moveToNextRound: () => void;
 }
 
@@ -50,13 +50,16 @@ const Round = ({
 }: Props) => {
   const audio = new Audio(timeoutSound);
   const onCountdownEnds = () => {
-    audio.play();
+    if (timeLimit !== undefined) {
+      audio.play();
+    }
   };
+
   const {
     countdownTime,
     pause,
     togglePause
-  } = useCountdown(timeLimit, round, onCountdownEnds);
+  } = useCountdown(timeLimit ?? 0, round, onCountdownEnds);
   const [isAnsShow, setIsAnsShow] = React.useState(false);
   const countdownEnd = countdownTime === 0;
   const isAnswerVisible = countdownEnd && isAnsShow;
@@ -64,7 +67,7 @@ const Round = ({
   React.useEffect(() => {
     const keyboardHandler = (ev: KeyboardEvent) => {
       ev.preventDefault();
-      if (ev.code === "Space" && !countdownEnd && timeLimit > 0) {
+      if (ev.code === "Space" && !countdownEnd && timeLimit) {
         togglePause();
       } else if (ev.code === "KeyA" && countdownEnd) {
         setIsAnsShow((prev) => !prev);
@@ -113,7 +116,7 @@ const Round = ({
   return (
     <div className={roundCss}>
       <h3 className={roundText}>{round + 1} / {totalQuiz}</h3>
-      {timeLimit > 0
+      {timeLimit
         && (
         <Timer countdown={countdownTime} />
         )}

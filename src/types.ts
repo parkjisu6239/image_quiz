@@ -4,7 +4,7 @@ export type Quiz = {
 }
 
 export type Option = {
-  timeLimit: number;
+  timeLimit?: number;
   isRandom: boolean;
 }
 
