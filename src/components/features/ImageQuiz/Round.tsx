@@ -48,9 +48,9 @@ const Round = ({
   timeLimit,
   moveToNextRound
 }: Props) => {
-  const audio = new Audio(timeoutSound);
   const onCountdownEnds = () => {
     if (timeLimit !== undefined) {
+      const audio = new Audio(timeoutSound);
       audio.play();
     }
   };
