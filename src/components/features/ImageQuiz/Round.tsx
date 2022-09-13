@@ -1,5 +1,5 @@
 import { css } from "@emotion/css";
-import React from "react";
+import React, { useCallback } from "react";
 import Timer from "src/components/UI/atoms/Timer";
 import GameImage from "src/components/UI/molecules/GameImage";
 import RoundController from "src/components/UI/molecules/RoundController";
@@ -64,6 +64,11 @@ const Round = ({
   const countdownEnd = countdownTime === 0;
   const isAnswerVisible = countdownEnd && isAnsShow;
 
+  const moveToNextRoundAndReset = useCallback(() => {
+    moveToNextRound();
+    setIsAnsShow(false);
+  }, [moveToNextRound]);
+
   React.useEffect(() => {
     const keyboardHandler = (ev: KeyboardEvent) => {
       ev.preventDefault();
@@ -72,7 +77,7 @@ const Round = ({
       } else if (ev.code === "KeyA" && countdownEnd) {
         setIsAnsShow((prev) => !prev);
       } else if (ev.code === "KeyD") {
-        moveToNextRound();
+        moveToNextRoundAndReset();
       }
     };
 
@@ -81,11 +86,7 @@ const Round = ({
     return () => {
       window.removeEventListener("keyup", keyboardHandler);
     };
-  }, [togglePause, countdownEnd, moveToNextRound, timeLimit]);
-
-  React.useEffect(() => {
-    setIsAnsShow(false);
-  }, [round]);
+  }, [togglePause, countdownEnd, moveToNextRoundAndReset, timeLimit]);
 
   const showAnsButton = {
     disabled: !countdownEnd,
@@ -103,11 +104,11 @@ const Round = ({
 
   const nextButton = {
     disabled: false,
-    onClick: moveToNextRound,
+    onClick: moveToNextRoundAndReset,
     text: "다음"
   };
 
-  const buttons = timeLimit ? [
+  const buttons = timeLimit !== undefined ? [
     showAnsButton,
     pauseButton,
     nextButton
@@ -116,7 +117,7 @@ const Round = ({
   return (
     <div className={roundCss}>
       <h3 className={roundText}>{round + 1} / {totalQuiz}</h3>
-      {timeLimit
+      {timeLimit !== undefined
         && (
         <Timer countdown={countdownTime} />
         )}

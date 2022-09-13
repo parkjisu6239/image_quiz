@@ -29,7 +29,7 @@ function ImageQuizPage() {
     setGameOption((prev) => {
       return {
         ...prev,
-        timeLimit: time
+        timeLimit: time || undefined
       };
     });
   };
